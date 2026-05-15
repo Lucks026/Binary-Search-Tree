@@ -23,8 +23,11 @@ static void print_stats(Node *root) {
 int main(void) {
     Node *root = NULL;
     int seed[] = {50, 30, 70, 20, 40, 60, 80};
-    for (int i = 0; i < 7; i++)
-        root = bst_insert(root, seed[i]);
+    for (int i = 0; i < 7; i++) {
+        Node *tmp = bst_insert(root, seed[i]);
+        if (!tmp) { fprintf(stderr, "malloc falhou no seed[%d]\n", i); break; }
+        root = tmp;
+    }
 
     int choice = -1, value = 0;
     do {
