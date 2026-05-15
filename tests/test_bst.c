@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <assert.h>
 #include "bst.h"
 
 static int passed = 0;
