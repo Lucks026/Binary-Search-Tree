@@ -100,3 +100,8 @@ int bst_height(Node *root) {
     int r = bst_height(root->right);
     return 1 + (l > r ? l : r);
 }
+
+int bst_count(Node *root) {
+    if (root == NULL) return 0;
+    return 1 + bst_count(root->left) + bst_count(root->right);
+}
