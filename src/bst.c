@@ -25,3 +25,7 @@ Node *bst_search(Node *root, int value) {
         return bst_search(root->left, value);
     return bst_search(root->right, value);
 }
+
+int bst_contains(Node *root, int value) {
+    return bst_search(root, value) != NULL;
+}
