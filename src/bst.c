@@ -86,8 +86,8 @@ Node *bst_remove(Node *root, int value) {
             free(root);
             return tmp;
         }
-        // substitui pelo menor da subárvore direita
         Node *successor = bst_min(root->right);
+        if (!successor) return root;  // defensivo
         root->data  = successor->data;
         root->right = bst_remove(root->right, successor->data);
     }
