@@ -50,3 +50,17 @@ void bst_inorder(Node *root) {
     printf("%d ", root->data);
     bst_inorder(root->right);
 }
+
+void bst_preorder(Node *root) {
+    if (root == NULL) return;
+    printf("%d ", root->data);
+    bst_preorder(root->left);
+    bst_preorder(root->right);
+}
+
+void bst_postorder(Node *root) {
+    if (root == NULL) return;
+    bst_postorder(root->left);
+    bst_postorder(root->right);
+    printf("%d ", root->data);
+}
