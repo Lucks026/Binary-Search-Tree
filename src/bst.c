@@ -29,3 +29,17 @@ Node *bst_search(Node *root, int value) {
 int bst_contains(Node *root, int value) {
     return bst_search(root, value) != NULL;
 }
+
+Node *bst_min(Node *root) {
+    if (root == NULL) return NULL;
+    while (root->left)
+        root = root->left;
+    return root;
+}
+
+Node *bst_max(Node *root) {
+    if (root == NULL) return NULL;
+    while (root->right)
+        root = root->right;
+    return root;
+}
