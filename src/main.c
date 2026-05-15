@@ -61,9 +61,15 @@ int main(void) {
                 if (scanf("%d", &value) != 1) { flush_stdin(); break; }
                 root = bst_remove(root, value);
                 break;
-            case 4: bst_inorder(root);   printf("\n"); break;
-            case 5: bst_preorder(root);  printf("\n"); break;
-            case 6: bst_postorder(root); printf("\n"); break;
+            case 4:
+                if (!root) { printf("(empty)\n"); break; }
+                bst_inorder(root); printf("\n"); break;
+            case 5:
+                if (!root) { printf("(empty)\n"); break; }
+                bst_preorder(root); printf("\n"); break;
+            case 6:
+                if (!root) { printf("(empty)\n"); break; }
+                bst_postorder(root); printf("\n"); break;
             case 7: bst_print_tree(root, 0); break;
             case 8: print_stats(root); break;
             case 0: break;
