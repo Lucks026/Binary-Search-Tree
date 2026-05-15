@@ -71,9 +71,22 @@ Node *bst_remove(Node *root, int value) {
         root->left = bst_remove(root->left, value);
     } else if (value > root->data) {
         root->right = bst_remove(root->right, value);
-    } else if (root->left == NULL && root->right == NULL) {
-        free(root);
-        return NULL;
+    } else {
+        if (root->left == NULL && root->right == NULL) {
+            free(root);
+            return NULL;
+        }
+        if (root->left == NULL) {
+            Node *tmp = root->right;
+            free(root);
+            return tmp;
+        }
+        if (root->right == NULL) {
+            Node *tmp = root->left;
+            free(root);
+            return tmp;
+        }
+        // dois filhos: ainda sem tratamento
     }
     return root;
 }
