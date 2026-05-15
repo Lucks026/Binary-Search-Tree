@@ -105,3 +105,11 @@ int bst_count(Node *root) {
     if (root == NULL) return 0;
     return 1 + bst_count(root->left) + bst_count(root->right);
 }
+
+void bst_print_tree(Node *root, int level) {
+    if (root == NULL) return;
+    bst_print_tree(root->right, level + 1);
+    for (int i = 0; i < level; i++) printf("    ");
+    printf("%d\n", root->data);
+    bst_print_tree(root->left, level + 1);
+}
