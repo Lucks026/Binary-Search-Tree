@@ -42,17 +42,17 @@ int main(void) {
         switch (choice) {
             case 1:
                 printf("Value: ");
-                scanf("%d", &value);
+                if (scanf("%d", &value) != 1) { flush_stdin(); break; }
                 root = bst_insert(root, value);
                 break;
             case 2:
                 printf("Value: ");
-                scanf("%d", &value);
+                if (scanf("%d", &value) != 1) { flush_stdin(); break; }
                 printf(bst_contains(root, value) ? "Found\n" : "Not found\n");
                 break;
             case 3:
                 printf("Value: ");
-                scanf("%d", &value);
+                if (scanf("%d", &value) != 1) { flush_stdin(); break; }
                 root = bst_remove(root, value);
                 break;
             case 4: bst_inorder(root);   printf("\n"); break;
