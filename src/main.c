@@ -8,10 +8,16 @@ static void flush_stdin(void) {
 }
 
 static void print_stats(Node *root) {
+    if (root == NULL) {
+        printf("(empty tree)\n");
+        return;
+    }
+    Node *mn = bst_min(root);
+    Node *mx = bst_max(root);
     printf("Nodes : %d\n", bst_count(root));
     printf("Height: %d\n", bst_height(root));
-    if (bst_min(root)) printf("Min   : %d\n", bst_min(root)->data);
-    if (bst_max(root)) printf("Max   : %d\n", bst_max(root)->data);
+    if (mn) printf("Min   : %d\n", mn->data);
+    if (mx) printf("Max   : %d\n", mx->data);
 }
 
 int main(void) {
