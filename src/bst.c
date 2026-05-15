@@ -64,3 +64,16 @@ void bst_postorder(Node *root) {
     bst_postorder(root->right);
     printf("%d ", root->data);
 }
+
+Node *bst_remove(Node *root, int value) {
+    if (root == NULL) return NULL;
+    if (value < root->data) {
+        root->left = bst_remove(root->left, value);
+    } else if (value > root->data) {
+        root->right = bst_remove(root->right, value);
+    } else if (root->left == NULL && root->right == NULL) {
+        free(root);
+        return NULL;
+    }
+    return root;
+}
