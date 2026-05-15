@@ -87,9 +87,10 @@ Node *bst_remove(Node *root, int value) {
             return tmp;
         }
         Node *successor = bst_min(root->right);
-        if (!successor) return root;  // defensivo
-        root->data  = successor->data;
-        root->right = bst_remove(root->right, successor->data);
+        if (!successor) return root;
+        int succ_val    = successor->data;  // copia antes de remover
+        root->data      = succ_val;
+        root->right     = bst_remove(root->right, succ_val);
     }
     return root;
 }
