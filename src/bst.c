@@ -93,3 +93,10 @@ Node *bst_remove(Node *root, int value) {
     }
     return root;
 }
+
+int bst_height(Node *root) {
+    if (root == NULL) return -1;
+    int l = bst_height(root->left);
+    int r = bst_height(root->right);
+    return 1 + (l > r ? l : r);
+}
