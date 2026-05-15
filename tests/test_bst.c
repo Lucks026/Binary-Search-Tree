@@ -53,10 +53,28 @@ static void test_remove(void) {
     bst_free(root);
 }
 
+static void test_metrics(void) {
+    printf("--- metrics ---\n");
+    Node *root = NULL;
+    int vals[] = {50, 30, 70, 20, 40, 60, 80};
+    for (int i = 0; i < 7; i++)
+        root = bst_insert(root, vals[i]);
+
+    CHECK(bst_count(root) == 7,          "count == 7");
+    CHECK(bst_height(root) == 2,         "height == 2");
+    CHECK(bst_min(root)->data == 20,     "min == 20");
+    CHECK(bst_max(root)->data == 80,     "max == 80");
+    CHECK(bst_is_leaf(bst_search(root, 20)),  "20 is leaf");
+    CHECK(!bst_is_leaf(bst_search(root, 50)), "50 is not leaf");
+
+    bst_free(root);
+}
+
 int main(void) {
     printf("=== BST test suite ===\n\n");
     test_insert_search();
     test_remove();
+    test_metrics();
     printf("\n%d passed, %d failed\n", passed, failed);
     return failed > 0 ? 1 : 0;
 }
