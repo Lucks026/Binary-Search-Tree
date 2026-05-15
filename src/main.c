@@ -26,7 +26,7 @@ int main(void) {
     for (int i = 0; i < 7; i++)
         root = bst_insert(root, seed[i]);
 
-    int choice, value;
+    int choice = -1, value = 0;
     do {
         printf("\n--- BST ---\n");
         printf("1. Insert\n");
