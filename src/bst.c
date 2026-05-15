@@ -120,3 +120,7 @@ void bst_free(Node *root) {
     bst_free(root->right);
     free(root);
 }
+
+int bst_is_leaf(Node *node) {
+    return node != NULL && node->left == NULL && node->right == NULL;
+}
