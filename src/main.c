@@ -7,6 +7,13 @@ static void flush_stdin(void) {
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
+static void print_stats(Node *root) {
+    printf("Nodes : %d\n", bst_count(root));
+    printf("Height: %d\n", bst_height(root));
+    if (bst_min(root)) printf("Min   : %d\n", bst_min(root)->data);
+    if (bst_max(root)) printf("Max   : %d\n", bst_max(root)->data);
+}
+
 int main(void) {
     Node *root = NULL;
     int seed[] = {50, 30, 70, 20, 40, 60, 80};
@@ -52,12 +59,7 @@ int main(void) {
             case 5: bst_preorder(root);  printf("\n"); break;
             case 6: bst_postorder(root); printf("\n"); break;
             case 7: bst_print_tree(root, 0); break;
-            case 8:
-                printf("Nodes : %d\n", bst_count(root));
-                printf("Height: %d\n", bst_height(root));
-                if (bst_min(root)) printf("Min   : %d\n", bst_min(root)->data);
-                if (bst_max(root)) printf("Max   : %d\n", bst_max(root)->data);
-                break;
+            case 8: print_stats(root); break;
             case 0: break;
             default: printf("Invalid option\n");
         }
