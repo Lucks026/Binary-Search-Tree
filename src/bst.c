@@ -113,3 +113,10 @@ void bst_print_tree(Node *root, int level) {
     printf("%d\n", root->data);
     bst_print_tree(root->left, level + 1);
 }
+
+void bst_free(Node *root) {
+    if (root == NULL) return;
+    bst_free(root->left);
+    bst_free(root->right);
+    free(root);
+}
