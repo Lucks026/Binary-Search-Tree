@@ -1,0 +1,4 @@
+bst
+test_bst
+*.o
+.vscode/
