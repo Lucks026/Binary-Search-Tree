@@ -43,3 +43,10 @@ Node *bst_max(Node *root) {
         root = root->right;
     return root;
 }
+
+void bst_inorder(Node *root) {
+    if (root == NULL) return;
+    bst_inorder(root->left);
+    printf("%d ", root->data);
+    bst_inorder(root->right);
+}
